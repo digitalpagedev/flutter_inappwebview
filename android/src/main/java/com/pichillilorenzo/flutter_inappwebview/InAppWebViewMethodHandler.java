@@ -2,6 +2,9 @@ package com.pichillilorenzo.flutter_inappwebview;
 
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 
@@ -30,6 +33,8 @@ import java.util.Map;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
+
+import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class InAppWebViewMethodHandler implements MethodChannel.MethodCallHandler {
   static final String LOG_TAG = "IAWMethodHandler";
@@ -569,6 +574,23 @@ public class InAppWebViewMethodHandler implements MethodChannel.MethodCallHandle
       case "canScrollHorizontally":
         if (webView != null) {
           result.success(webView.canScrollHorizontally());
+        } else {
+          result.success(false);
+        }
+        break;
+      case "requestFocus":
+        if(webView != null) {
+          result.success(webView.requestFocus());
+        } else {
+          result.success(false);
+        }
+        break;
+      case "showKeyboard":
+        if (webView != null) {
+          Log.d("jppark", "showKeyboard");
+          webView.requestFocus();
+          webView.showKeyboardForce();
+          result.success(true);
         } else {
           result.success(false);
         }
