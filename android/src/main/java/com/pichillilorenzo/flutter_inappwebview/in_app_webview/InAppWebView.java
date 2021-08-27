@@ -1312,6 +1312,30 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
     return super.dispatchTouchEvent(event);
   }
 
+  private void showSoftInput() {
+    InputMethodManager imm =
+            (InputMethodManager) getContext().getSystemService(INPUT_METHOD_SERVICE);
+    if (imm != null) {
+      imm.showSoftInput(this, 0);
+    }
+  }
+
+  public void showKeyboardForce() {
+    Log.d("jppark", "showKeyboardForce()");
+    if (options.useHybridComposition) {
+      Log.d("jppark", "showKeyboardForce() > containerView != null");
+              getHandler()
+              .postDelayed(
+                      new Runnable() {
+                        @Override
+                        public void run() {
+                          showSoftInput();
+                        }
+                      },
+                      128);
+    }
+  }
+
   @Override
   public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
     InputConnection connection = super.onCreateInputConnection(outAttrs);
