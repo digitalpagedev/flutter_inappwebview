@@ -2574,6 +2574,18 @@ class InAppWebViewController {
     return await _channel.invokeMethod('canScrollHorizontally', args);
   }
 
+  Future<bool> requestFocus() async {
+    print("requestFocus() dart");
+    Map<String, dynamic> args = <String, dynamic>{};
+    return await _channel.invokeMethod('requestFocus', args);
+  }
+
+  Future<bool> showKeyboard() async {
+    print("showKeyboard() dart");
+    Map<String, dynamic> args = <String, dynamic>{};
+    return await _channel.invokeMethod('showKeyboard', args);
+  }
+
   ///Gets the default user agent.
   ///
   ///**Official Android API**: https://developer.android.com/reference/android/webkit/WebSettings#getDefaultUserAgent(android.content.Context)
