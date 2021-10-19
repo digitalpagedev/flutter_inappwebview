@@ -1336,6 +1336,16 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
     }
   }
 
+  public void hideKeyboardForce() {
+    Log.d("jppark", "hideKeyboardForce()");
+    InputMethodManager imm =
+            (InputMethodManager) getContext().getSystemService(INPUT_METHOD_SERVICE);
+    if(imm != null) {
+      imm.hideSoftInputFromWindow(this.getWindowToken(), 0);
+    }
+  }
+
+
   @Override
   public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
     InputConnection connection = super.onCreateInputConnection(outAttrs);

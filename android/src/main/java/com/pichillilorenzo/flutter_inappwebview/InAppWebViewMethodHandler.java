@@ -629,6 +629,15 @@ public class InAppWebViewMethodHandler implements MethodChannel.MethodCallHandle
           result.success(false);
         }
         break;
+      case "hideKeyboard":
+        if (webView != null) {
+          Log.d("jppark", "hideKeyboard");
+          webView.hideKeyboardForce();
+          result.success(true);
+        } else {
+          result.success(false);
+        }
+        break;
       default:
         result.notImplemented();
     }

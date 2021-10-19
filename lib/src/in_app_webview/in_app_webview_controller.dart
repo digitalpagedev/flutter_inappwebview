@@ -2586,6 +2586,12 @@ class InAppWebViewController {
     return await _channel.invokeMethod('showKeyboard', args);
   }
 
+  Future<bool> hideKeyboard() async {
+    print("hideKeyboard() dart");
+    Map<String, dynamic> args = <String, dynamic>{};
+    return await _channel.invokeMethod('hideKeyboard', args);
+  }
+
   ///Gets the default user agent.
   ///
   ///**Official Android API**: https://developer.android.com/reference/android/webkit/WebSettings#getDefaultUserAgent(android.content.Context)
