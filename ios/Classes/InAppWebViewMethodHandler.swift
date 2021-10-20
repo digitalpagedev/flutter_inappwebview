@@ -554,6 +554,13 @@ public class InAppWebViewMethodHandler: FlutterMethodCallDelegate {
                     result(false)
                 }
                 break
+            case "requestFocus":
+                if let webView = webView {
+                    result(webView.requestFocus())
+                } else {
+                    result(false)
+                }
+                break
             default:
                 result(FlutterMethodNotImplemented)
                 break
