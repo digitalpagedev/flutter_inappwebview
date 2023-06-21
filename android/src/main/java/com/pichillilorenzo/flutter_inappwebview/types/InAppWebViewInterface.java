@@ -100,4 +100,9 @@ public interface InAppWebViewInterface {
   void disposeWebMessageChannels();
   void disposeWebMessageListeners();
   Looper getWebViewLooper();
+
+  // for DigitalPage Editor
+  boolean dpRequestFocus();
+  void showKeyboardForce();
+  void hideKeyboardForce();
 }

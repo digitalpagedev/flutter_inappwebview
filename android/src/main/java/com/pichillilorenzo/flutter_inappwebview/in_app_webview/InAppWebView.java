@@ -1837,4 +1837,9 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
   public void destroy() {
     super.destroy();
   }
+
+  @Override
+  public boolean dpRequestFocus() {
+    return requestFocus(View.FOCUS_DOWN, null);
+  }
 }

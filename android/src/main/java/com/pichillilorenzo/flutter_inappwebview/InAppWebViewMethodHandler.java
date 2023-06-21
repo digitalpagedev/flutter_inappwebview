@@ -614,7 +614,7 @@ public class InAppWebViewMethodHandler implements MethodChannel.MethodCallHandle
         break;
       case "requestFocus":
         if(webView != null) {
-          result.success(webView.requestFocus());
+          result.success(webView.dpRequestFocus());
         } else {
           result.success(false);
         }
@@ -622,7 +622,7 @@ public class InAppWebViewMethodHandler implements MethodChannel.MethodCallHandle
       case "showKeyboard":
         if (webView != null) {
           Log.d("jppark", "showKeyboard");
-          webView.requestFocus();
+          webView.dpRequestFocus();
           webView.showKeyboardForce();
           result.success(true);
         } else {
