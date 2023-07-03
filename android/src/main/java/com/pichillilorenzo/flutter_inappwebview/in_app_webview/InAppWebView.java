@@ -1322,18 +1322,16 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
 
   public void showKeyboardForce() {
     Log.d("jppark", "showKeyboardForce()");
-    if (options.useHybridComposition) {
-      Log.d("jppark", "showKeyboardForce() > containerView != null");
-              getHandler()
-              .postDelayed(
-                      new Runnable() {
-                        @Override
-                        public void run() {
-                          showSoftInput();
-                        }
-                      },
-                      128);
-    }
+    Log.d("jppark", "showKeyboardForce() > containerView != null");
+            getHandler()
+            .postDelayed(
+                    new Runnable() {
+                      @Override
+                      public void run() {
+                        showSoftInput();
+                      }
+                    },
+                    128);
   }
 
   public void hideKeyboardForce() {
