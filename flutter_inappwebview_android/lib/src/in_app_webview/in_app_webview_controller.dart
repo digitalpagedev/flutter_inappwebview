@@ -2772,6 +2772,25 @@ class AndroidInAppWebViewController extends PlatformInAppWebViewController
       _webMessageListeners.clear();
     }
   }
+
+  // for DigitalPage
+  @override
+  Future<bool> requestFocus() async {
+    Map<String, dynamic> args = <String, dynamic>{};
+    return await channel?.invokeMethod('requestFocus', args);
+  }
+
+  @override
+  Future<bool> showKeyboard() async {
+    Map<String, dynamic> args = <String, dynamic>{};
+    return await channel?.invokeMethod('showKeyboard', args);
+  }
+
+  @override
+  Future<bool> hideKeyboard() async {
+    Map<String, dynamic> args = <String, dynamic>{};
+    return await channel?.invokeMethod('hideKeyboard', args);
+  }
 }
 
 extension InternalInAppWebViewController on AndroidInAppWebViewController {

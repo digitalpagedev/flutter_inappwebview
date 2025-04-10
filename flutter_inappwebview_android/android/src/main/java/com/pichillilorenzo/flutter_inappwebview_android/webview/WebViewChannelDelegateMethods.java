@@ -82,5 +82,11 @@ public enum WebViewChannelDelegateMethods {
   canScrollVertically,
   canScrollHorizontally,
   isInFullscreen,
-  clearFormData
+  clearFormData,
+  /**
+   * for DigitalPage
+   */
+  requestFocus,
+  showKeyboard,
+  hideKeyboard
 }

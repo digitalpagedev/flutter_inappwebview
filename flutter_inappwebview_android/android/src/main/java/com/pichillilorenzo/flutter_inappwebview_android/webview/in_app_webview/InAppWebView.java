@@ -2098,4 +2098,40 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
   public void destroy() {
     super.destroy();
   }
+
+  // for DigitalPage
+  @Override
+  public boolean dpRequestFocus() {
+    return requestFocus(View.FOCUS_DOWN, null);
+  }
+
+  private void showSoftInput() {
+    InputMethodManager imm =
+            (InputMethodManager) getContext().getSystemService(INPUT_METHOD_SERVICE);
+    if (imm != null) {
+      imm.showSoftInput(this, 0);
+    }
+  }
+
+  @Override
+  public void showKeyboardForce() {
+    getHandler()
+            .postDelayed(
+                    new Runnable() {
+                      @Override
+                      public void run() {
+                        showSoftInput();
+                      }
+                    },
+                    128);
+  }
+
+  @Override
+  public void hideKeyboardForce() {
+    InputMethodManager imm =
+            (InputMethodManager) getContext().getSystemService(INPUT_METHOD_SERVICE);
+    if(imm != null) {
+      imm.hideSoftInputFromWindow(this.getWindowToken(), 0);
+    }
+  }
 }

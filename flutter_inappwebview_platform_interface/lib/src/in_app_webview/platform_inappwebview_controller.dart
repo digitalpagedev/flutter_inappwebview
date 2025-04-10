@@ -2445,4 +2445,18 @@ abstract class PlatformInAppWebViewController extends PlatformInterface
     throw UnimplementedError(
         'dispose is not implemented on the current platform');
   }
+
+  // for DigitalPage
+  Future<bool> requestFocus() {
+    throw UnimplementedError(
+        'requestFocus is not implemented on the current platform');
+  }
+  Future<bool> showKeyboard() {
+    throw UnimplementedError(
+        'showKeyboard is not implemented on the current platform');
+  }
+  Future<bool> hideKeyboard() {
+    throw UnimplementedError(
+        'hideKeyboard is not implemented on the current platform');
+  }
 }

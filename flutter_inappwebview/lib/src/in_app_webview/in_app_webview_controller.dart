@@ -579,4 +579,11 @@ class InAppWebViewController {
   ///{@macro flutter_inappwebview_platform_interface.PlatformInAppWebViewController.dispose}
   void dispose({bool isKeepAlive = false}) =>
       platform.dispose(isKeepAlive: isKeepAlive);
+
+  // for DigitalPage
+  Future<bool> requestFocus() => platform.requestFocus();
+
+  Future<bool> showKeyboard() => platform.showKeyboard();
+
+  Future<bool> hideKeyboard() => platform.hideKeyboard();
 }

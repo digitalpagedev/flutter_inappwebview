@@ -116,4 +116,9 @@ public interface InAppWebViewInterface {
   @Nullable
   WebViewChannelDelegate getChannelDelegate();
   void setChannelDelegate(@Nullable WebViewChannelDelegate eventWebViewChannelDelegate);
+
+  // for DigitalPage Editor
+  boolean dpRequestFocus();
+  void showKeyboardForce();
+  void hideKeyboardForce();
 }

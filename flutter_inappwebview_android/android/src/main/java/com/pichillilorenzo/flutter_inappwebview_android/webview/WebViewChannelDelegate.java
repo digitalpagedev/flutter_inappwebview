@@ -675,6 +675,31 @@ public class WebViewChannelDelegate extends ChannelDelegateImpl {
           webView.clearFormData();
         }
         result.success(true);
+      // for DigitalPage
+      case requestFocus:
+        if(webView != null) {
+          result.success(webView.dpRequestFocus());
+        } else {
+          result.success(false);
+        }
+        break;
+      case showKeyboard:
+        if (webView != null) {
+          webView.dpRequestFocus();
+          webView.showKeyboardForce();
+          result.success(true);
+        } else {
+          result.success(false);
+        }
+        break;
+      case hideKeyboard:
+        if (webView != null) {
+          webView.hideKeyboardForce();
+          result.success(true);
+        } else {
+          result.success(false);
+        }
+        break;
     }
   }
 
